@@ -39,7 +39,7 @@ fi
 
 # Install Node.js; needed for certain LSPs used in Nvim
 if ! [ -x "$(command -v npm)" ]; then
-    sudo dnf module install nodejs:18/common
+    sudo dnf module install -y nodejs:18/common
 fi
 
 # Install Nvim
