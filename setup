@@ -6,6 +6,13 @@ if ! [ -x "$(command -v terminator)" ]; then
     sudo apt install -y terminator
 fi
 
+# Install Google Chrome
+if ! [ -x "$(command -v google-chrome)" ]; then
+    curl -fsSLO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb | sudo -E bash - &&\
+    sudo apt install -y ./google-chrome-stable_current_amd64.deb
+    rm google-chrome-stable_current_amd64.deb
+fi
+
 # Install Neofetch
 if ! [ -x "$(command -v neofetch)" ]; then
     sudo apt install -y neofetch
@@ -52,3 +59,8 @@ fi
 
 # Run PackerSync in Nvim and suppress all messages
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' &>/dev/null
+
+# Install Rust
+if ! [ -x "$(command -v cargo)" ]; then
+    curl https://sh.rustup.rs -sSf | sh
+fi
