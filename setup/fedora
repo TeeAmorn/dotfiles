@@ -68,10 +68,15 @@ fi
 if ! [ -x "$(command -v i3)" ]; then
     sudo dnf install -y i3
 fi
-#
+
 # Create i3 config
 if ! [ -d "$HOME/.config/i3" ]; then
     cp -r ../i3 $HOME/.config
+fi
+
+# Install Feh
+if ! [ -x "$(command -v feh)" ]; then
+    sudo dnf install -y feh
 fi
 
 # Create fonts config
