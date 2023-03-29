@@ -29,6 +29,11 @@ if ! [ -x "$(command -v nvim)" ]; then
     rm nvim-linux64.deb
 fi
 
+# Install Packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+# Copy Nvim configuration to .config/
 if [ -d "./nvim" ]; then 
     cp -r ./nvim $HOME/.config
 fi
