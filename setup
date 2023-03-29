@@ -1,22 +1,32 @@
 #!/bin/bash
 set -e 
 
+# Install Terminator
+if ! [ -x "$(command -v terminator)" ]; then
+    sudo apt install -y terminator
+fi
+
+# Install Neofetch
+if ! [ -x "$(command -v neofetch)" ]; then
+    sudo apt install -y neofetch
+fi
+
 # Install curl
 if ! [ -x "$(command -v curl)" ]; then
     sudo apt install -y curl
 fi
 
-# Install C/C++ compilers
+# Install C/C++ compilers; needed for C/C++ LSP in Nvim
 if ! [ -x "$(command -v gcc)" ]; then
     sudo apt install -y build-essential
 fi
 
-# Install ripgrep
+# Install ripgrep; needed for Telescope in Nvim
 if ! [ -x "$(command -v rg)" ]; then
     sudo apt install -y ripgrep
 fi
 
-# Install Node.js
+# Install Node.js; needed for certain LSPs used in Nvim
 if ! [ -x "$(command -v npm)" ]; then
     curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - &&\
     sudo apt-get install -y nodejs
@@ -30,11 +40,10 @@ if ! [ -x "$(command -v nvim)" ]; then
 fi
 
 # Install Packer.nvim
-if [ -d "~/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
-    rm -rf ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+if ! [ -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+     $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # Copy Nvim configuration to .config/
 if [ -d "./nvim" ]; then 
