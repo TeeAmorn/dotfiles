@@ -48,7 +48,7 @@ if ! [ -x "$(command -v nvim)" ]; then
 fi
 
 # Copy Nvim configuration to .config/
-if [ -d "./nvim" ]; then 
+if ! [ -d "./nvim" ]; then 
     cp -r ../nvim $HOME/.config
 fi
 
