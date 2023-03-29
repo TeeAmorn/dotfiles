@@ -1,5 +1,5 @@
 # Dotfiles
 
-These are the dotfiles to set up my development environment on *Ubuntu*. 
+These are the dotfiles to set up my development environment. 
 
-Run the `setup` binary.
+Run the `fedora` binary inside `setup/`.
