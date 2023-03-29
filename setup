@@ -30,6 +30,9 @@ if ! [ -x "$(command -v nvim)" ]; then
 fi
 
 # Install Packer.nvim
+if [ -d " " ]; then
+    rm -rf ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
