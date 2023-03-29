@@ -1,0 +1,81 @@
+#!/bin/bash
+set -e 
+
+# ========================================
+# Miscellaneous
+# ========================================
+
+if ! [ -d "$HOME/Pictures/wallpaper" ]; then
+    mkdir $HOME/Pictures/wallpaper
+fi
+
+if ! [ -f "$HOME/Pictures/wallpaper/nature.jpg" ]; then
+    curl -L --create-dirs https://images.hdqwalls.com/download/tranquility-minimal-4k-6q-2560x1440.jpg > $HOME/Pictures/wallpaper/nature.jpg
+fi
+
+# ========================================
+# Tools and Applications Installation
+# ========================================
+
+# Install Neofetch
+if ! [ -x "$(command -v neofetch)" ]; then
+    sudo dnf install -y neofetch
+fi
+
+# ========================================
+# Nvim and Languages Installation
+# ========================================
+
+# Install Rust
+if ! [ -x "$(command -v cargo)" ]; then
+    curl https://sh.rustup.rs -sSf | sh
+    source "$HOME/.cargo/env"
+fi
+
+# Install ripgrep; needed for Telescope in Nvim
+if ! [ -x "$(command -v rg)" ]; then
+    sudo dnf install -y ripgrep
+fi
+
+# Install Node.js; needed for certain LSPs used in Nvim
+if ! [ -x "$(command -v npm)" ]; then
+    sudo dnf module install nodejs:18/common
+fi
+
+# Install Nvim
+if ! [ -x "$(command -v nvim)" ]; then
+    sudo dnf install -y neovim python3-neovim
+fi
+
+# Copy Nvim configuration to .config/
+if [ -d "./nvim" ]; then 
+    cp -r ../nvim $HOME/.config
+fi
+
+# Install Packer.nvim
+if ! [ -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+     $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
+    # Run PackerSync in Nvim and suppress all messages
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' &>/dev/null
+fi
+
+# ========================================
+# i3 Installation
+# ========================================
+
+# Install i3
+if ! [ -x "$(command -v i3)" ]; then
+    sudo dnf install -y i3
+fi
+
+# Install Rofi
+if ! [ -x "$(command -v rofi)" ]; then
+    sudo dnf install -y rofi
+fi
+
+# Install Compton
+if ! [ -x "$(command -v compton)" ]; then
+    sudo dnf install -y compton
+fi
+
