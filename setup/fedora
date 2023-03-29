@@ -133,7 +133,7 @@ if ! [ -x "$(command -v networkmanager_dmenu)" ]; then
 fi
 
 # Create PolyBar config
-if ! [ -d "$HOME/.config/rofi" ]; then
+if ! [ -d "$HOME/.config/polybar" ]; then
     cp -r ../polybar $HOME/.config
 fi
 
