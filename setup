@@ -37,3 +37,6 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 if [ -d "./nvim" ]; then 
     cp -r ./nvim $HOME/.config
 fi
+
+# Run PackerSync in Nvim and suppress all messages
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' &>/dev/null
