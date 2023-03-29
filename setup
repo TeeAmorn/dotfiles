@@ -8,7 +8,7 @@ fi
 
 # Install C/C++ compilers
 if ! [ -x "$(command -v gcc)" ]; then
-    sudo apt install -y build-essentials
+    sudo apt install -y build-essential
 fi
 
 # Install ripgrep
@@ -29,6 +29,6 @@ if ! [ -x "$(command -v nvim)" ]; then
     rm nvim-linux64.deb
 fi
 
-if [ -d "./nvim" ] && ! [ -d "$HOME/.config/nvim" ]; then 
+if [ -d "./nvim" ]; then 
     cp -r ./nvim $HOME/.config
 fi
