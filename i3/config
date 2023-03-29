@@ -195,5 +195,5 @@ gaps inner 16
 gaps outer 10
 
 exec_always feh --bg-center $HOME/Pictures/wallpaper/nature.jpg
-exec_always compton
 exec_always --no-startup-id exec bash ~/.config/polybar/launch.sh --cuts
+exec_always picom
