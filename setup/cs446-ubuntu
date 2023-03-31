@@ -77,5 +77,6 @@ cp -r $SCRIPT_DIR/../nvim $HOME/.config
 # ==============================
 
 # GNOME terminal colorscheme
+export TERMINAL=gnome-terminal
 sudo apt-get install dconf-cli uuid-runtime
 bash -c "$(wget -qO- https://git.io/vQgMr)"
