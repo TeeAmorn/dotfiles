@@ -2,6 +2,10 @@
 set -e 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+# ==============================
+# Course-specific Dependencies
+# ==============================
+
 sudo systemctl disable apport.service
 sudo systemctl mask apport.service
 sudo apt install -y synaptic
@@ -14,6 +18,10 @@ sudo apt install -y xorriso
 sudo apt install -y iasl
 sudo apt install -y fakeroot build-essential xz-utils libssl-dev bc libelf-dev isolinux
 sudo apt install -y qemu
+
+# ==============================
+# Nvim Dependencies
+# ==============================
 
 sudo apt install -y curl
 sudo apt install -y build-essential
@@ -39,3 +47,18 @@ if ! [ -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
 fi
 
 cp -r $SCRIPT_DIR/../nvim $HOME/.config
+
+# ==============================
+# GNOME Terminal Colorscheme
+# ==============================
+
+sudo apt-get install dconf-cli uuid-runtime
+
+if ! [ -d "$HOME/src/gogh" ]; then
+    mkdir -p "$HOME/src"
+    cd "$HOME/src"
+    git clone https://github.com/Gogh-Co/Gogh.git gogh
+    cd gogh
+    export TERMINAL=gnome-terminal
+    cd themes
+fi
