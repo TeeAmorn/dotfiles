@@ -3,6 +3,31 @@ set -e
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # ==============================
+# Miscellaneous
+# ==============================
+
+# Copy over fonts
+cp -r $SCRIPT_DIR/../fonts $HOME/.local/share
+
+# Download wallpaper
+if ! [ -d "$HOME/Pictures/wallpaper" ]; then
+    mkdir $HOME/Pictures/wallpaper
+fi
+
+if ! [ -f "$HOME/Pictures/wallpaper/nature.jpg" ]; then
+    curl -L --create-dirs https://images.hdqwalls.com/download/tranquility-minimal-4k-6q-2560x1440.jpg > $HOME/Pictures/wallpaper/nature.jpg
+fi
+
+# Install Neofetch
+if ! [ -x "$(command -v neofetch)" ]; then
+    sudo dnf install -y neofetch
+    if ! [ -f "$HOME/.bashrc" ]; then
+        touch $HOME/.bashrc
+    fi
+    echo "neofetch" >> $HOME/.bashrc
+fi
+
+# ==============================
 # Course-specific Dependencies
 # ==============================
 
