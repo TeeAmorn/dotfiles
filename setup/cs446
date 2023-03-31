@@ -2,6 +2,8 @@
 set -e 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+sudo apt update && sudo apt upgrade
+
 # ==============================
 # Miscellaneous
 # ==============================
