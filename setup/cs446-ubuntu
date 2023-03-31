@@ -19,7 +19,7 @@ fi
 
 # Install Neofetch
 if ! [ -x "$(command -v neofetch)" ]; then
-    sudo dnf install -y neofetch
+    sudo apt install -y neofetch
     if ! [ -f "$HOME/.bashrc" ]; then
         touch $HOME/.bashrc
     fi
