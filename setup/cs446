@@ -1,0 +1,41 @@
+#!/bin/bash
+set -e 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+sudo systemctl disable apport.service
+sudo systemctl mask apport.service
+sudo apt install -y synaptic
+sudo apt install -y dpkg-dev
+sudo apt install -y git -y 
+sudo apt install -y gitk -y 
+sudo apt install -y libncurses5-dev
+sudo apt install -y linux-headers-$(uname -r)
+sudo apt install -y xorriso
+sudo apt install -y iasl
+sudo apt install -y fakeroot build-essential xz-utils libssl-dev bc libelf-dev isolinux
+sudo apt install -y qemu
+
+sudo apt install -y curl
+sudo apt install -y build-essential
+sudo apt install -y ripgrep
+
+# Install Node.js; needed for certain LSPs used in Nvim
+if ! [ -x "$(command -v npm)" ]; then
+    curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - &&\
+    sudo apt-get install -y nodejs
+fi
+
+# Install Nvim
+if ! [ -x "$(command -v nvim)" ]; then
+    curl -fsSLO https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb | sudo -E bash - &&\
+    sudo apt install -y ./nvim-linux64.deb
+    rm nvim-linux64.deb
+fi
+
+# Install Packer.nvim
+if ! [ -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+     $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
+
+cp -r $SCRIPT_DIR/../nvim $HOME/.config
