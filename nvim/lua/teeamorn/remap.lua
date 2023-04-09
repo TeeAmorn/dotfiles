@@ -20,11 +20,11 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- yank to system clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- delete to system clipboard
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- remove function of Q; do not let it quit nvim
 vim.keymap.set("n", "Q", "<nop>")
@@ -39,3 +39,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- start replacing all occurences of the word cursor is at
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- split and close window
+vim.keymap.set("n", "<leader>sh", "<cmd>sp<CR>")
+vim.keymap.set("n", "<leader>sv", "<cmd>vs<CR>")
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
