@@ -28,18 +28,23 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- remove function of Q; do not let it quit nvim
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
--- quick fix navigation
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+-- formatting
+vim.keymap.set("n", "<leader>ff", function()
+    vim.lsp.buf.format { async = true }
+end, opts)
+vim.keymap.set("n", "<leader>fp", "<cmd>Prettier<CR>")
+
+-- -- quick fix navigation
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- start replacing all occurences of the word cursor is at
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- split and close window
-vim.keymap.set("n", "<leader>sh", "<cmd>sp<CR>")
-vim.keymap.set("n", "<leader>sv", "<cmd>vs<CR>")
+vim.keymap.set("n", "<leader>wh", "<cmd>sp<CR>")
+vim.keymap.set("n", "<leader>wv", "<cmd>vs<CR>")
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
