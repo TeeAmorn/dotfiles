@@ -84,6 +84,7 @@ fi
 
 # Copy i3 configuration to .config/
 cp -r $SCRIPT_DIR/../i3 $HOME/.config
+cp -r $SCRIPT_DIR/../i3status $HOME/.config
 
 # Install Feh
 if ! [ -x "$(command -v feh)" ]; then
