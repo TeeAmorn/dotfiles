@@ -36,19 +36,19 @@ window:
 scrolling:
   history: 10000
 
-font:
-  normal:
-    family: JetBrains Mono
-    style: Light
-  bold:
-    family: JetBrains Mono
-    style: ExtraBold
-  italic:
-    family: JetBrains Mono
-    style: Italic
-  bold_italic:
-    family: JetBrains Mono
-    style: ExtraBoldItalic
+    # font:
+    #   normal:
+    #     family: JetBrains Mono
+    #     style: Light
+    #   bold:
+    #     family: JetBrains Mono
+    #     style: ExtraBold
+    #   italic:
+    #     family: JetBrains Mono
+    #     style: Italic
+    #   bold_italic:
+    #     family: JetBrains Mono
+    #     style: ExtraBoldItalic
 draw_bold_text_with_bright_colors: true
 
 cursor:

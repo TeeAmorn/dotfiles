@@ -61,43 +61,41 @@ cp -r $SCRIPT_DIR/../nvim $HOME/.config
 if ! [ -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
      $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
-    # # Run PackerSync in Nvim and suppress all messages
-    # nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' &>/dev/null
 fi
 
-# ========================================
-# i3 Installation
-# ========================================
-
-# Install Rofi
-if ! [ -x "$(command -v rofi)" ]; then
-    sudo dnf install -y rofi
-fi
-
-# Copy Rofi configuration to .config/
-cp -r $SCRIPT_DIR/../rofi $HOME/.config
-
-# Install i3
-if ! [ -x "$(command -v i3)" ]; then
-    sudo dnf install -y i3
-fi
-
-# Copy i3 configuration to .config/
-cp -r $SCRIPT_DIR/../i3 $HOME/.config
-cp -r $SCRIPT_DIR/../i3status $HOME/.config
-
-# Install Feh
-if ! [ -x "$(command -v feh)" ]; then
-    sudo dnf install -y feh
-fi
-
-# Picom
-if ! [ -x "$(command -v picom)" ]; then
-    sudo dnf install -y picom
-fi
-#
-# Copy Picom configuration to .config/
-cp -r $SCRIPT_DIR/../picom $HOME/.config
+# # ========================================
+# # i3 Installation
+# # ========================================
+# 
+# # Install Rofi
+# if ! [ -x "$(command -v rofi)" ]; then
+#     sudo dnf install -y rofi
+# fi
+# 
+# # Copy Rofi configuration to .config/
+# cp -r $SCRIPT_DIR/../rofi $HOME/.config
+# 
+# # Install i3
+# if ! [ -x "$(command -v i3)" ]; then
+#     sudo dnf install -y i3
+# fi
+# 
+# # Copy i3 configuration to .config/
+# cp -r $SCRIPT_DIR/../i3 $HOME/.config
+# cp -r $SCRIPT_DIR/../i3status $HOME/.config
+# 
+# # Install Feh
+# if ! [ -x "$(command -v feh)" ]; then
+#     sudo dnf install -y feh
+# fi
+# 
+# # Picom
+# if ! [ -x "$(command -v picom)" ]; then
+#     sudo dnf install -y picom
+# fi
+# #
+# # Copy Picom configuration to .config/
+# cp -r $SCRIPT_DIR/../picom $HOME/.config
 
 # ========================================
 # Alacritty Installation
@@ -131,11 +129,11 @@ if ! [ -x "$(command -v alacritty)" ]; then
     rm -rf alacritty
 fi
 
-# Install fonts
-NUM_OF_JETBRAINS_FONT=$(fc-list | grep 'ttf: JetBrains Mono' | wc -l)
-if [ "$NUM_OF_JETBRAINS_FONT" = "0" ]; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
-fi
+# # Install fonts
+# NUM_OF_JETBRAINS_FONT=$(fc-list | grep 'ttf: JetBrains Mono' | wc -l)
+# if [ "$NUM_OF_JETBRAINS_FONT" = "0" ]; then
+#     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+# fi
 
 # Copy Alacritty configuration to .config/
 cp -r $SCRIPT_DIR/../alacritty $HOME/.config
