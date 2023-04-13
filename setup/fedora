@@ -24,6 +24,7 @@ if ! [ -x "$(command -v neofetch)" ]; then
         touch $HOME/.bashrc
     fi
     echo "neofetch" >> $HOME/.bashrc
+    echo "neofetch" >> $HOME/.zshrc
 fi
 
 # ========================================
@@ -63,40 +64,6 @@ if ! [ -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
      $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
 
-# # ========================================
-# # i3 Installation
-# # ========================================
-# 
-# # Install Rofi
-# if ! [ -x "$(command -v rofi)" ]; then
-#     sudo dnf install -y rofi
-# fi
-# 
-# # Copy Rofi configuration to .config/
-# cp -r $SCRIPT_DIR/../rofi $HOME/.config
-# 
-# # Install i3
-# if ! [ -x "$(command -v i3)" ]; then
-#     sudo dnf install -y i3
-# fi
-# 
-# # Copy i3 configuration to .config/
-# cp -r $SCRIPT_DIR/../i3 $HOME/.config
-# cp -r $SCRIPT_DIR/../i3status $HOME/.config
-# 
-# # Install Feh
-# if ! [ -x "$(command -v feh)" ]; then
-#     sudo dnf install -y feh
-# fi
-# 
-# # Picom
-# if ! [ -x "$(command -v picom)" ]; then
-#     sudo dnf install -y picom
-# fi
-# #
-# # Copy Picom configuration to .config/
-# cp -r $SCRIPT_DIR/../picom $HOME/.config
-
 # ========================================
 # Alacritty Installation
 # ========================================
@@ -119,21 +86,20 @@ if ! [ -x "$(command -v alacritty)" ]; then
     sudo desktop-file-install extra/linux/Alacritty.desktop
     sudo update-desktop-database
 
-    # Include autocompletion
+    # Include autocompletion for bash
     mkdir -p ~/.bash_completion
     cp extra/completions/alacritty.bash ~/.bash_completion/alacritty
     echo "source ~/.bash_completion/alacritty" >> ~/.bashrc
+
+    # Include autocompletion for zsh
+    mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+    echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
+    cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
 
     # Clean up
     cd $SCRIPT_DIR
     rm -rf alacritty
 fi
-
-# # Install fonts
-# NUM_OF_JETBRAINS_FONT=$(fc-list | grep 'ttf: JetBrains Mono' | wc -l)
-# if [ "$NUM_OF_JETBRAINS_FONT" = "0" ]; then
-#     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
-# fi
 
 # Copy Alacritty configuration to .config/
 cp -r $SCRIPT_DIR/../alacritty $HOME/.config
