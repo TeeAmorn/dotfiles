@@ -29,6 +29,12 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- remove function of Q; do not let it quit nvim
 vim.keymap.set("n", "Q", "<nop>")
 
+-- formatting
+vim.keymap.set("n", "<leader>ff", function()
+    vim.lsp.buf.format { async = true }
+end, opts)
+vim.keymap.set("n", "<leader>fp", "<cmd>Prettier<CR>")
+
 -- -- quick fix navigation
 -- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 -- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
