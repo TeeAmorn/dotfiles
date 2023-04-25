@@ -44,7 +44,7 @@ fi
 
 # Install Node.js; needed for certain LSPs used in Nvim
 if ! [ -x "$(command -v npm)" ]; then
-    sudo dnf module install -y nodejs:18/common
+    sudo dnf install -y nodejs
     sudo npm install -g vscode-langservers-extracted
     sudo npm install -g typescript typescript-language-server
     sudo npm install -g prettier
