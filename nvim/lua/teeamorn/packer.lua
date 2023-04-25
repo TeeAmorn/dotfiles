@@ -49,7 +49,7 @@ return packer.startup(function(use)
             -- LSP Support
             { 'neovim/nvim-lspconfig' }, -- Required
             {
-                               -- Optional
+                -- Optional
                 'williamboman/mason.nvim',
                 run = function()
                     pcall(vim.cmd, 'MasonUpdate')
@@ -58,9 +58,9 @@ return packer.startup(function(use)
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' }, -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
         }
     }
 
@@ -80,9 +80,6 @@ return packer.startup(function(use)
         'jose-elias-alvarez/null-ls.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-
-    use('MunifTanjim/prettier.nvim')
-
 
     if packer_bootstrap then
         require("packer").sync()

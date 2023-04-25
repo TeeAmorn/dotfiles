@@ -6,6 +6,11 @@ lsp.on_attach(function(_, bufnr)
         omit = { '<F2>', '<F3>', '<F4>' }
     })
 
+    -- format code in current buffer
+    vim.keymap.set({ 'n', 'x' }, '<leader>ff', function()
+        vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+    end)
+
     -- rename all references to the symbol under the cursor
     vim.keymap.set({ 'n', 'x' }, '<leader>rr', "<cmd>lua vim.lsp.buf.rename()<CR>")
 
@@ -18,7 +23,6 @@ lsp.ensure_installed({
     'rust_analyzer', -- must install Rust
     'tsserver',      -- npm install -g typescript typescript-language-server
     'eslint',        -- npm install -g vscode-langservers-extracted
-    'tailwindcss'    -- npm install -g @tailwindcss/language-server
 })
 
 -- Configure lua language server for neovim
