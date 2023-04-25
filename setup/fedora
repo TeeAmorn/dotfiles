@@ -7,14 +7,14 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 # Miscellaneous
 # ========================================
 
-cp -r $SCRIPT_DIR/../fonts $HOME/.local/share
-
+# Install wallpaper
 if ! [ -d "$HOME/Pictures/wallpaper" ]; then
     mkdir $HOME/Pictures/wallpaper
 fi
 
 if ! [ -f "$HOME/Pictures/wallpaper/nature.jpg" ]; then
-    curl -L --create-dirs https://images.hdqwalls.com/download/tranquility-minimal-4k-6q-2560x1440.jpg > $HOME/Pictures/wallpaper/nature.jpg
+    # curl -L --create-dirs https://images.hdqwalls.com/download/tranquility-minimal-4k-6q-2560x1440.jpg > $HOME/Pictures/wallpaper/nature.jpg
+    cp $SCRIPT_DIR/../nature.jpg $HOME/Pictures/wallpaper/nature.jpg
 fi
 
 # Install Neofetch
