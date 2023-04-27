@@ -27,3 +27,12 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+
+-- set indentation to 2 for the file types below
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"typescriptreact", "typescript", "javascriptreact", "javascript", "html", "css"},
+    callback = function()
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 2
+    end
+})
