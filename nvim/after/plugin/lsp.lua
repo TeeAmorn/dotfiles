@@ -21,8 +21,6 @@ end)
 lsp.ensure_installed({
     'lua_ls',
     'rust_analyzer', -- must install Rust
-    'tsserver',      -- npm install -g typescript typescript-language-server
-    'eslint',        -- npm install -g vscode-langservers-extracted
 })
 
 -- Configure lua language server for neovim

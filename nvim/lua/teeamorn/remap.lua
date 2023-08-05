@@ -39,6 +39,6 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- split and close window
-vim.keymap.set("n", "<leader>wh", "<cmd>sp<CR>")
-vim.keymap.set("n", "<leader>wv", "<cmd>vs<CR>")
+vim.keymap.set("n", "<leader>wv", "<cmd>sp<CR>")
+vim.keymap.set("n", "<leader>wh", "<cmd>vs<CR>")
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")

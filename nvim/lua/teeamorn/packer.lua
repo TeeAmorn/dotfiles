@@ -31,7 +31,7 @@ return packer.startup(function(use)
     -- packer can manage itself
     use("wbthomason/packer.nvim")
 
-    use("ellisonleao/gruvbox.nvim")
+    use("olimorris/onedarkpro.nvim")
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -80,6 +80,16 @@ return packer.startup(function(use)
         'jose-elias-alvarez/null-ls.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+
+    use { 'ojroques/nvim-hardline' }
+
+    use("nvim-treesitter/nvim-treesitter-context")
+
+    use("lukas-reineke/indent-blankline.nvim")
+
+    use("theprimeagen/harpoon")
+
+    use("rrethy/vim-illuminate")
 
     if packer_bootstrap then
         require("packer").sync()
