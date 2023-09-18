@@ -26,7 +26,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 
 -- set indentation to 2 for the file types below
 vim.api.nvim_create_autocmd("FileType", {
@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         vim.opt_local.shiftwidth = 2
         vim.opt_local.tabstop = 2
-        vim.opt_local.softtabstop = 4
+        vim.opt_local.softtabstop = 2
     end
 })
 
