@@ -1,3 +1,4 @@
 return {
-    "rrethy/vim-illuminate"
+    "rrethy/vim-illuminate",
+    "nvim-treesitter/nvim-treesitter-context",
 }
