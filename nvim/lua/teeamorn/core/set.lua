@@ -30,10 +30,10 @@ vim.opt.colorcolumn = "120"
 
 -- set indentation to 2 for the file types below
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "typescriptreact", "typescript", "javascriptreact", "javascript", "html", "css" },
-    callback = function()
-        vim.opt_local.shiftwidth = 2
-        vim.opt_local.tabstop = 2
-        vim.opt_local.softtabstop = 2
-    end
+	pattern = { "typescriptreact", "typescript", "javascriptreact", "javascript", "html", "css" },
+	callback = function()
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+	end,
 })
