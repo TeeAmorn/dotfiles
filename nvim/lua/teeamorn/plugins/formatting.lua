@@ -19,13 +19,14 @@ return {
 				graphql = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				sh = { "shfmt", "shellcheck" },
+				sh = { "shfmt" },
+				proto = { "buf" },
 			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			},
+			-- format_on_save = {
+			-- 	lsp_fallback = true,
+			-- 	async = false,
+			-- 	timeout_ms = 1000,
+			-- },
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>ff", function()

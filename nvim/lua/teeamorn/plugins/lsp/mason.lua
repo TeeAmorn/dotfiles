@@ -30,6 +30,8 @@ return {
 				"rust_analyzer",
 				"bashls",
 				"gopls",
+				"marksman",
+				"bufls",
 			},
 			automatic_installation = true,
 		})
@@ -43,6 +45,7 @@ return {
 			"eslint_d", -- js linter
 			"shellcheck", -- bash linter
 			"shfmt", -- bash formatter
+			"buf", -- protobuf formatter/linter
 		})
 	end,
 }
