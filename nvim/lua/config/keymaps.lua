@@ -25,3 +25,6 @@ vim.keymap.del("n", "<leader>w-")
 vim.keymap.del("n", "<leader>w|")
 vim.keymap.set("n", "<leader>wv", "<cmd>sp<CR>", { desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>wh", "<cmd>vs<CR>", { desc = "Split window horizontally" })
+
+-- open file explorer
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "Open File Explorer" })
