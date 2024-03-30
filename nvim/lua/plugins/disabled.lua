@@ -5,4 +5,5 @@ return {
   { "echasnovski/mini.ai", enabled = false },
   { "echasnovski/mini.comment", enabled = false },
   { "echasnovski/mini.surround", enabled = false },
+  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
 }
