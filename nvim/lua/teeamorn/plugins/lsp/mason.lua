@@ -30,6 +30,7 @@ return {
 				"tsserver",
 				"lua_ls",
 				"bufls",
+				"dockerls",
 			},
 		})
 
@@ -39,6 +40,7 @@ return {
 				"stylua", -- lua formatter
 				"eslint_d", -- JS linter
 				"buf", -- protobuf
+				"hadolint", -- docker
 			},
 		})
 	end,
