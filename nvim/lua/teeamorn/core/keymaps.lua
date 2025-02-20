@@ -5,9 +5,6 @@ local keymap = vim.keymap -- for conciseness
 -- save file
 keymap.set({ "n", "v", "i" }, "<C-s>", "<Esc>:w<CR>", { desc = "Save buffer" })
 
--- file explorer
-keymap.set("n", "<leader>e", "<cmd>Explore<CR>", { desc = "Open file explorer" })
-
 -- window management
 keymap.set("n", "<leader>wh", "<C-w>v", { desc = "Split window vertically" })
 keymap.set("n", "<leader>wv", "<C-w>s", { desc = "Split window horizontally" })

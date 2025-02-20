@@ -1,7 +1,6 @@
 return {
 	"williamboman/mason.nvim",
 	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
@@ -16,16 +15,13 @@ return {
 			},
 		})
 
-		local mason_lspconfig = require("mason-lspconfig")
-		mason_lspconfig.setup({})
-
 		local mason_tool_installer = require("mason-tool-installer")
 		mason_tool_installer.setup({
 			auto_update = true,
 			ensure_installed = {
 				-- LSP
-				"lua_ls", -- lua
-				"ts_ls", -- javascript/typescript
+				"lua_ls", -- lua LSP
+				"ts_ls", -- javascript/typescript LSP
 
 				-- LINTER
 				"eslint_d", -- javascript/typescript linter
