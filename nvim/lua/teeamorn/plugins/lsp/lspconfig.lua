@@ -5,6 +5,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
+		{ "ibhagwan/fzf-lua", opts = {} },
 	},
 	config = function()
 		-- import lspconfig plugin
@@ -16,6 +17,9 @@ return {
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+		-- import fzf-lua plugin
+		local fzf = require("fzf-lua")
+
 		local keymap = vim.keymap -- for conciseness
 
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -26,23 +30,23 @@ return {
 				local opts = { buffer = ev.buf, silent = true }
 
 				-- set keybinds
-				opts.desc = "Show LSP references"
-				keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+				opts.desc = "Go to references"
+				keymap.set("n", "gr", fzf.lsp_references, opts) -- show all references
 
-				opts.desc = "Go to declaration"
-				keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+				opts.desc = "Go to definitions"
+				keymap.set("n", "gd", fzf.lsp_definitions, opts) -- show all definitions
 
-				opts.desc = "Show LSP definitions"
-				keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+				opts.desc = "Go to declaractions"
+				keymap.set("n", "gD", fzf.lsp_declarations, opts) -- show all declaractions
+
+				opts.desc = "Go to type definitions"
+				keymap.set("n", "gt", fzf.lsp_typedefs, opts) --show all type definitions
 
 				opts.desc = "See available code actions"
 				keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
 				opts.desc = "Smart rename"
 				keymap.set("n", "<leader>rr", vim.lsp.buf.rename, opts) -- smart rename
-
-				opts.desc = "Show buffer diagnostics"
-				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
 				opts.desc = "Show line diagnostics"
 				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
