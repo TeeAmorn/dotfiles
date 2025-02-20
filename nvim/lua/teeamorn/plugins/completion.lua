@@ -1,6 +1,5 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = "rafamadriz/friendly-snippets",
 	version = "*",
 
 	---@module 'blink.cmp'
@@ -11,6 +10,21 @@ return {
 		appearance = {
 			use_nvim_cmp_as_default = true,
 			nerd_font_variant = "mono",
+		},
+
+		completion = {
+			menu = {
+				draw = {
+					columns = { { "label", "label_description", gap = 1 }, { "kind" } },
+				},
+			},
+			ghost_text = {
+				enabled = true,
+			},
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 0,
+			},
 		},
 
 		sources = {
