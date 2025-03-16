@@ -12,8 +12,8 @@ keymap.set("n", "<leader>wd", "<cmd>close<CR>", { desc = "Close current window" 
 
 keymap.set("n", "<leader>tt", "<cmd>tabnew<CR>", { desc = "Open new tab" })
 keymap.set("n", "<leader>td", "<cmd>tabclose<CR>", { desc = "Close current tab" })
-keymap.set("n", "[t", "<cmd>tabn<CR>", { desc = "Go to next tab" })
-keymap.set("n", "]t", "<cmd>tabn<CR>", { desc = "Go to previous tab" })
+keymap.set("n", "]t", "<cmd>tabn<CR>", { desc = "Go to next tab" })
+keymap.set("n", "[t", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 
 -- quit all
 keymap.set({ "n", "v" }, "<leader>qq", "<cmd>qa<CR>", { desc = "Quit" })
