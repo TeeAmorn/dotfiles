@@ -10,6 +10,13 @@ return {
 	config = function(_, opts)
 		local lspconfig = require("lspconfig")
 
+		-- Enable inline diagnostics
+		vim.diagnostic.config({
+			virtual_text = true,
+			signs = true,
+			update_in_insert = true,
+		})
+
 		-- Attach blink completion capabilities to each server
 		for server, config in pairs(opts.servers) do
 			-- passing config.capabilities to blink.cmp merges with the capabilities in your

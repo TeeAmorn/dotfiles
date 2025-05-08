@@ -31,8 +31,6 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
-vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']]) -- turn on line numbers in file explorer
-
 -- highlight yanked area
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),

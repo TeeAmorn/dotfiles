@@ -17,11 +17,9 @@ return {
 			sources = {
 				files = {
 					hidden = true,
-					ignored = true,
 				},
 			},
 			hidden = true,
-			ignored = true,
 			enabled = true,
 		},
 		quickfile = { enabled = true },
