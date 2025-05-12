@@ -1,6 +1,8 @@
 return {
 	"neovim/nvim-lspconfig",
-	dependencies = { "saghen/blink.cmp" },
+	dependencies = {
+		"saghen/blink.cmp",
+	},
 	opts = {
 		servers = {
 			lua_ls = {},
@@ -27,13 +29,15 @@ return {
 
 		-- Attach the on_attach function to each server
 		local on_attach = function(_, bufnr)
-			vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, { buffer = bufnr, desc = "Smart rename" })
-			vim.keymap.set(
-				"n",
-				"<leader>d",
-				vim.diagnostic.open_float,
-				{ buffer = bufnr, desc = "Show line diagnostics" }
-			)
+			vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, {
+				buffer = bufnr,
+				desc = "Smart rename",
+			})
+
+			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {
+				buffer = bufnr,
+				desc = "Show line diagnostics",
+			})
 		end
 
 		for server, config in pairs(opts.servers) do
