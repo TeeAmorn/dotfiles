@@ -29,3 +29,6 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 -- keep cursor in the middle when searching for words
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
+
+-- remove highlight after search
+keymap.set({ "n", "v" }, "<leader>/", ":noh<CR>", { desc = "Remove highlight after search" })
