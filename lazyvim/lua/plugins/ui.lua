@@ -8,8 +8,8 @@ return {
     picker = {
       sources = {
         explorer = {
-          -- auto close explorer sidebar after selecting file
-          auto_close = true,
+          -- uncomment line be low auto close explorer sidebar after selecting file
+          -- auto_close = true,
         },
         files = {
           -- show hidden files when using fzf
